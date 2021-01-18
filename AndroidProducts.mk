@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2020 xyzprjkt
+# Copyright (C) 2020-2021 xyzprjkt
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,9 +22,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/ancient_lavender.mk
+    $(LOCAL_DIR)/xdroid_lavender.mk
 
 COMMON_LUNCH_CHOICES := \
-	ancient_lavender-eng \
-    ancient_lavender-userdebug \
-    ancient_lavender-user
+	xdroid_lavender-eng \
+    xdroid_lavender-userdebug \
+    xdroid_lavender-user

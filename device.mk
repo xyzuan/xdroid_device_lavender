@@ -565,12 +565,6 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
    xyzzone
 
-# xyz-prebuilts
-PRODUCT_PACKAGES += \
-    G-UIRadiusAndroid \
-    G-UIRadiusSystemUI \
-    G-UIStatusbarHeight
-
 # xyz-xyzuan HALs
 PRODUCT_PACKAGES += \
     xyz_xyzuan.android.hardware.light@2.0-service.xiaomi_lavender \
