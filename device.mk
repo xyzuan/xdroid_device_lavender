@@ -334,7 +334,6 @@ PRODUCT_PACKAGES += \
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(DT_PATH)/overlay \
-    $(DT_PATH)/overlay-ancient \
     $(DT_PATH)/overlay-lavender \
     $(DT_PATH)/overlay-system
 

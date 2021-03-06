@@ -37,23 +37,21 @@ $(call inherit-product, vendor/xiaomi/lavender/sdm660-vendor.mk)
 $(call inherit-product, vendor/xiaomi/dirac/dirac.mk)
 
 # Inherit some common AOSP stuff.
-$(call inherit-product, vendor/ancient/config/common_full_phone.mk)
+$(call inherit-product, vendor/xdroid/config/common.mk)
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
-
-# Ancient Identifier.
-ANCIENT_OFFICIAL := true
-ANCIENT_GAPPS := true
-TARGET_USES_BLUR := true
 
 # Device Identifier.
 PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE="lavender" \
     PRODUCT_NAME="lavender"
 
+# xdroid Identifier.
+XDROID_BUILD_TYPE := OFFICIAL
+
 # Prod Identifier.
-PRODUCT_NAME := ancient_lavender
+PRODUCT_NAME := xdroid_lavender
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_PLATFORM := SDM660
 PRODUCT_DEVICE := lavender
