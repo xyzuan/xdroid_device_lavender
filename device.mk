@@ -105,7 +105,8 @@ PRODUCT_PACKAGES += \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    libvolumelistener
+    libvolumelistener \
+    tinymix.vendor
 
 # Audio Configs
 PRODUCT_COPY_FILES += \
@@ -119,8 +120,9 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths.xml \
     $(DEVICE_PATH)/configs/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_platform_info.xml \
 	$(DEVICE_PATH)/configs/audio/audio_platform_info_intcodec.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info_intcodec.xml \
-	$(DEVICE_PATH)/configs/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml
-
+	$(DEVICE_PATH)/configs/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml \
+    $(DEVICE_PATH)/configs/audio/audio_policy_configuration_a2dp_offload_disabled_qti.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/audio_policy_configuration_a2dp_offload_disabled.xml \
+    $(DEVICE_PATH)/configs/audio/bluetooth_qti_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_qti_audio_policy_configuration.xml
 
 # Audio Policy
 PRODUCT_COPY_FILES += \
@@ -150,15 +152,18 @@ PRODUCT_PACKAGES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
+    BluetoothQti \
     audio.bluetooth.default \
     android.hardware.bluetooth.audio@2.0-impl \
     liba2dpoffload \
+    libbtconfigstore \
     libbthost_if \
     libhdmiedid \
     libhfp \
     libldacBT_dec \
     libsndmonitor \
-    vendor.qti.hardware.bluetooth_audio@2.0.vendor
+    vendor.qti.hardware.bluetooth_audio@2.0.vendor \
+    vendor.qti.hardware.btconfigstore@1.0.vendor
 
 # Boot animation
 TARGET_BOOTANIMATION_SIZE := 1080p
@@ -387,6 +392,7 @@ PRODUCT_PACKAGES += \
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(DEVICE_PATH)/overlay \
+    $(DEVICE_PATH)/overlay-system \
     $(DEVICE_PATH)/overlay-lavender \
     $(DEVICE_PATH)/overlay-xd
 
@@ -400,7 +406,9 @@ PRODUCT_PACKAGES += \
 
 # RRO configuration
 TARGET_USES_RRO := true
-    
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
+    $(COMMON_PATH)/overlay-system
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \

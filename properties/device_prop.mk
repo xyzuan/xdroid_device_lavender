@@ -116,7 +116,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.bluetooth.a2dp_offload.disabled=false \
     persist.bluetooth.bluetooth_audio_hal.disabled=false \
     persist.vendor.bt.aac_frm_ctl.enabled=true \
-    persist.vendor.qcom.bluetooth.enable.splita2dp=false \
+    persist.bluetooth.bluetooth_audio_hal.disabled=false \
     ro.vendor.bluetooth.wipower=false \
     vendor.qcom.bluetooth.soc=cherokee \
     bt.max.hfpclient.connections=1 \
@@ -124,6 +124,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.hw.fm.init=0
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    persist.vendor.bt.a2dp.aac_whitelist=false \
+    persist.vendor.qcom.bluetooth.enable.splita2dp=true \
+    persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxhd-aac-ldac \
+    persist.bluetooth.a2dp_offload.disabled=true \
+    ro.bluetooth.library_name=libbluetooth_qti.so \
+    ro.bluetooth.a2dp_offload.supported=true \
+    vendor.audio.feature.a2dp_offload.enable=true \
     vendor.bluetooth.soc=cherokee
 
 # BPF
